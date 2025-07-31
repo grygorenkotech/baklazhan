@@ -20,16 +20,17 @@ h1 {
   margin-bottom: 24px;
 }
 .question-block {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 .question-title {
   font-weight: bold;
   margin-bottom: 8px;
 }
 .options label {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 4px;
-  cursor: pointer;
 }
 button[type="submit"] {
   background: #6d3fa6;
@@ -64,4 +65,4 @@ button[type="submit"]:hover {
 .archetype-block h2 {
   color: #6d3fa6;
   margin-top: 0;
-} 
+}

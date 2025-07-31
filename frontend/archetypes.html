@@ -12,18 +12,15 @@
     <div id="archetypes-list"></div>
     <a href="index.html">← До тесту</a>
   </div>
+  <script src="archetypes-data.js"></script>
   <script>
-    fetch('http://localhost:3001/api/archetypes')
-      .then(res => res.json())
-      .then(data => {
-        const list = document.getElementById('archetypes-list');
-        list.innerHTML = Object.entries(data).map(([name, desc]) =>
-          `<div class="archetype-block">
-            <h2>${name}</h2>
-            <p>${desc.replace(/\n/g, '<br>')}</p>
-          </div>`
-        ).join('');
-      });
+    const list = document.getElementById('archetypes-list');
+    list.innerHTML = Object.entries(archetypesData).map(([name, desc]) =>
+      `<div class="archetype-block">
+        <h2>${name}</h2>
+        <p>${desc.replace(/\n/g, '<br>')}</p>
+      </div>`
+    ).join('');
   </script>
 </body>
-</html> 
+</html>
