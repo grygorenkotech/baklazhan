@@ -5,6 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Архетипи баклажанів</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .container {
+      max-width: 1200px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+    .archetype-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: 40px;
+      background: #faf7f2;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 2px 12px #0001;
+      max-width: 1100px; /* було 900px */
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .archetype-img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #fff;
+      flex-shrink: 0;
+      border: 1px solid #eee;
+      box-shadow: 0 1px 6px #0002;
+    }
+    .archetype-content {
+      flex: 1;
+    }
+    .archetype-content h2 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 1.5em;
+    }
+    .archetype-content p {
+      font-size: 1.08em;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -15,12 +57,16 @@
   <script src="archetypes-data.js"></script>
   <script>
     const list = document.getElementById('archetypes-list');
-    list.innerHTML = Object.entries(archetypesData).map(([name, desc]) =>
-      `<div class="archetype-block">
-        <h2>${name}</h2>
-        <p>${desc.replace(/\n/g, '<br>')}</p>
-      </div>`
-    ).join('');
+    const archetypeNames = Object.keys(archetypesData);
+    list.innerHTML = archetypeNames.map((name, idx) => `
+      <div class="archetype-block">
+        <img class="archetype-img" src="media/${idx + 1}.png" alt="${name}">
+        <div class="archetype-content">
+          <h2>${name}</h2>
+          <p>${archetypesData[name].replace(/\n/g, '<br>')}</p>
+        </div>
+      </div>
+    `).join('');
   </script>
 </body>
 </html>
